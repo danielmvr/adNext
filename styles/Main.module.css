@@ -3,13 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,600;1,100&display=swap');
 
 .body{
-  --primaryColor: #610101;
-  --primaryColorDark: #2b0a0a;
-  --primaryColorLight: #943535;
-  --secondaryColor: #692020;
-  --secondaryColorDark: #3b1212;
-  --secondaryColorLight: #833636;
-  
   align-items: center;
   text-align: center;
   background: var(--secondaryColorDark);

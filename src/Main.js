@@ -279,7 +279,7 @@ export default class Main extends Component {
             </div>
           </div>
         </div>
-        <footer className={styles.footer}>Ver. 1.00</footer>
+        <footer className={styles.footer}>Ver. 1.22</footer>
       </div>
     );
   }
