@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
 import Slider from './components/Slider';
+import Helmet from 'react-helmet';
 
 //import VideoLogo from './components/VideoLogo';
 
@@ -291,6 +292,7 @@ export default class Main extends Component {
   render() {
     return (
       <div className={styles.body}>
+        <Helmet title="AdBellum - Simulador de Combate D&D 5e" />
         <h1 className={styles.h1}>Ad Bellum</h1>
         <div className={styles.main}>
           <div className={styles.container}>
