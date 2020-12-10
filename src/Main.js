@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
 import Slider from './components/Slider';
+
 //import VideoLogo from './components/VideoLogo';
 
 import styles from '../styles/Main.module.css';
@@ -17,13 +18,15 @@ let idop = 0
 let atq = 0
 let id = ''
 let dmg = 0
+let {hpMy} = 0
+let {hpEnemy} = 0
 
 const icons = [
   {name: 'caveira', url: 'https://i.imgur.com/MhZEUCr.png'}
 ]
 
 export default class Main extends Component {
-
+  
   mudaVelo = (e) => {
     velo = (e.target.value - 1000) * (-1)
   }
@@ -44,7 +47,7 @@ export default class Main extends Component {
     //controlSword('play')
     createSelect();
 
-    let hpMy, caMy, weapomMy, hpEnemy, caEnemy, weapomEnemy = 0
+    let caMy, weapomMy, caEnemy, weapomEnemy = 0
 
     hpMy = Number(document.getElementById('myhp').value);
     caMy = Number(document.getElementById('myca').value);
@@ -65,13 +68,30 @@ export default class Main extends Component {
         if (document.getElementById('selResul') !== null) {
             document.getElementById('selResul').remove()
         }
+        if(document.getElementById('myHp') !== null){
+          document.getElementById('myHp').remove()
+          document.getElementById('enemyHp').remove()
+        }
         const destino = document.getElementById('res')
         const newselect = document.createElement('select')
+        const divMy = document.createElement('div')
+        const divEnemy = document.createElement('div')
+        divMy.id = 'myHp'
+        divMy.className = `${styles.divhps}`
+        divEnemy.id = 'enemyHp'
+        divEnemy.className = `${styles.divhps}`
         newselect.id = `selResul`
         newselect.className = `${styles.selResul}`
         newselect.size = 10
+        destino.appendChild(divMy)
         destino.appendChild(newselect)
+        destino.appendChild(divEnemy)
     }
+
+    let resMyHp = document.getElementById('myHp')
+    let resEnemyHp  = document.getElementById('enemyHp')
+    resMyHp.innerText = hpMy
+    resEnemyHp.innerText = hpEnemy
 
     const select = document.getElementById('selResul')
     let idini = document.createElement('option')
@@ -98,6 +118,7 @@ export default class Main extends Component {
           if(atq === 20){
               dmg = dice(pegaDano(weapomMy)) * 2
               const dmgtemp = dmg + (bndmg1*2)
+              const hptempenemy = hpEnemy
               if(hpMy <= 0 || hpEnemy <= 0){
                   break
               }
@@ -105,11 +126,14 @@ export default class Main extends Component {
                 const id = createOption()
                   id.selected = true
                   id.innerHTML = `CRITICO! Você causou ${dmgtemp} de dano.`
+                  resEnemyHp.innerText = hptempenemy - dmgtemp
               }, (tp = tp + velo))
-              hpEnemy = hpEnemy - dmgtemp
+              hpEnemy = hpEnemy - dmgtemp              
+              
           } else if ((atq+bnatq1) >= caEnemy) {
               dmg = dice(pegaDano(weapomMy))
               const dmgtemp = dmg + bndmg1
+              const hptempenemy = hpEnemy
               if (hpMy <= 0 || hpEnemy <= 0) {
                   break
               }
@@ -117,8 +141,10 @@ export default class Main extends Component {
                   const id = createOption()
                   id.selected = true
                   id.innerHTML = `Você causou ${dmgtemp} de dano.`
+                  resEnemyHp.innerText = hptempenemy - dmgtemp
               }, (tp = tp + velo))
-              hpEnemy = hpEnemy - dmgtemp
+              hpEnemy = hpEnemy - dmgtemp              
+              
           } else{
               if(hpMy <= 0 || hpEnemy <= 0){
                   break
@@ -134,6 +160,7 @@ export default class Main extends Component {
           if(atq === 20){
               dmg = dice(pegaDano(weapomEnemy)) * 2
               const dmgtemp = dmg + (bndmg2*2)
+              const hptempmy = hpMy
               if(hpMy <= 0 || hpEnemy <= 0){
                   break
               }
@@ -141,12 +168,14 @@ export default class Main extends Component {
                 const id = createOption()
                   id.selected = true
                   id.innerHTML = `CRITICO! Seu inimigo causou ${dmgtemp} de dano.`
+                  resMyHp.innerText = hptempmy - dmgtemp
               }, (tp = tp + velo))
               hpMy = hpMy - dmgtemp
               atq = atq + bnatq2
           }else if (atq+bnatq2 >= caMy) {
               dmg = dice(pegaDano(weapomEnemy))
               const dmgtemp = dmg + bndmg2
+              const hptempmy = hpMy
               if (hpMy <= 0 || hpEnemy <= 0) {
                   break
               }
@@ -154,6 +183,7 @@ export default class Main extends Component {
                 const id = createOption()
                   id.selected = true
                   id.innerHTML = `Seu inimigo causou ${dmgtemp} de dano.`
+                  resMyHp.innerText = hptempmy - dmgtemp
               }, (tp = tp + velo))
               hpMy = hpMy - dmgtemp
           } else{
@@ -174,6 +204,7 @@ export default class Main extends Component {
           if(atq === 20){
               dmg = dice(pegaDano(weapomEnemy)) * 2
               const dmgtemp = dmg + (bndmg2 *2)
+              const hptempmy = hpMy
               if(hpMy <= 0 || hpEnemy <= 0){
                   break
               }
@@ -181,12 +212,14 @@ export default class Main extends Component {
                 const id = createOption()
                   id.selected = true
                   id.innerHTML = `CRITICO! Seu inimigo causou ${dmgtemp} de dano.`
+                  resMyHp.innerText = hptempmy - dmgtemp
               }, (tp = tp + velo))
               hpMy = hpMy - dmgtemp
               atq = atq + bnatq2
           } else if(atq+bnatq2 >= caMy){
               dmg = dice(pegaDano(weapomEnemy))
               const dmgtemp = dmg + bndmg2
+              const hptempmy = hpMy
               if(hpMy <= 0 || hpEnemy <= 0){
                   break
               }
@@ -194,6 +227,7 @@ export default class Main extends Component {
                 const id = createOption()
                   id.selected = true
                   id.innerHTML = `Seu inimigo causou ${dmgtemp} de dano.`
+                  resMyHp.innerText = hptempmy - dmgtemp
               }, (tp = tp + velo));
               hpMy = hpMy - dmgtemp
           } else{
@@ -210,6 +244,7 @@ export default class Main extends Component {
           if(atq === 20){
               dmg = dice(pegaDano(weapomMy)) * 2
               const dmgtemp = dmg + (bndmg1*2)
+              const hptempenemy = hpEnemy
               if(hpMy <= 0 || hpEnemy <= 0){
                   break
               }
@@ -217,12 +252,15 @@ export default class Main extends Component {
                 const id = createOption()
                   id.selected = true
                   id.innerHTML = `CRITICO! Você causou ${dmgtemp} de dano.`
+                  resEnemyHp.innerText = hptempenemy - dmgtemp
               }, (tp = tp + velo))
               hpEnemy = hpEnemy - dmgtemp
+              
               atq = atq + bnatq1
           }else if(atq+bnatq1 >= caEnemy){
               dmg = dice(pegaDano(weapomMy))
               const dmgtemp = dmg + bndmg1
+              const hptempenemy = hpEnemy
               if(hpMy <= 0 || hpEnemy <= 0){
                   break
               }
@@ -230,8 +268,10 @@ export default class Main extends Component {
                 const id = createOption()
                   id.selected = true
                   id.innerHTML = `Você causou ${dmgtemp} de dano.`
+                  resEnemyHp.innerText = hptempenemy - dmgtemp
               }, (tp = tp + velo))
               hpEnemy = hpEnemy - dmgtemp
+              
           } else{
               if(hpMy <= 0 || hpEnemy <= 0){
                   break
@@ -251,7 +291,7 @@ export default class Main extends Component {
   render() {
     return (
       <div className={styles.body}>
-        <h1>Ad Bellum</h1>
+        <h1 className={styles.h1}>Ad Bellum</h1>
         <div className={styles.main}>
           <div className={styles.container}>
             <div id="modelo" className={styles.modelo}>
@@ -273,17 +313,21 @@ export default class Main extends Component {
               <p className={styles.p}>Velocidade da Simulação</p>
               
              </div>
-            <button className={styles.button} onClick={this.lutar} type="submit">Fight</button>
-            <div id="res">
-
+            <button className={styles.button} onClick={this.lutar} type="submit">Lutar</button>
+            <div className={styles.resultados} id="res">
+              
+              
+              
             </div>
           </div>
         </div>
-        <footer className={styles.footer}>Ver. 1.22</footer>
+        <footer className={styles.footer}>Ver. 1.23</footer>
       </div>
     );
   }
 }
+
+export {hpMy, hpEnemy}
 
 function dice (d) {
   d = d + 1;
@@ -309,7 +353,7 @@ function createOption(){
   select.appendChild(opres)
   opres.selected = true
   select.selectedIndex = idop
-  let id = document.querySelector(`#op${idop}`)
+  let id = document.querySelector(`#op${idop}`)  
   return id
 }
 
