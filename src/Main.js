@@ -336,13 +336,16 @@ function dice (d) {
 }
 
 function pegaDano(weapon) {
-  let w
-  if(weapon.length > 1){
-    w = weapon.slice(2)
+  let dano
+  let mult
+  if(weapon.length > 1){    
+    dano = weapon.slice(2)
+    mult = weapon.slice(-3,-2)
+    dano = dano * mult
   } else{
-    w = weapon
+    dano = weapon
   }
-  return Number(w)
+  return Number(dano)
 }
 
 function createOption(){
