@@ -6,6 +6,8 @@ export default function Form(props) {
 
   return (
       <div id={props.id}>
+      <label>Nome</label>
+      <input className={styles.input} type="text" id={`${props.id}name`} />  
       <label>HP</label>
       <input className={styles.input} type="number" id={`${props.id}hp`} />
       <label>CA</label>
