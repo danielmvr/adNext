@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
 import Slider from './components/Slider';
-import { initGA, logPageView } from '../utils/analytics'
+import Layout from './components/layout'
 import { Helmet } from 'react-helmet'
 
 //import VideoLogo from './components/VideoLogo';
@@ -28,21 +28,7 @@ const icons = [
 ]
 
 export default class Main extends Component {
-  componentDidMount () {
-    if (!window.GA_INITIALIZED) {
-      initGA()
-      window.GA_INITIALIZED = true
-    }
-    logPageView()
-  }
-  render () {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    )
-  }
-
+  
   mudaVelo = (e) => {
     velo = (e.target.value - 1000) * (-1)
   }
@@ -314,6 +300,9 @@ export default class Main extends Component {
   render() {
     return (
       <div className={styles.body}>
+        <Layout>
+          <></>
+        </Layout>
         <Helmet>
           <title>AdBellum | Simulador de Combate D&D 5e</title>
         </Helmet>
