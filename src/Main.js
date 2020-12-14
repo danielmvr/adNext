@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
 import Slider from './components/Slider';
-import Layout from './components/layout'
 import { Helmet } from 'react-helmet'
 
 //import VideoLogo from './components/VideoLogo';
@@ -300,9 +299,6 @@ export default class Main extends Component {
   render() {
     return (
       <div className={styles.body}>
-        <Layout>
-          <></>
-        </Layout>
         <Helmet>
           <title>AdBellum | Simulador de Combate D&D 5e</title>
         </Helmet>
