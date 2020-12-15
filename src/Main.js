@@ -320,7 +320,7 @@ export default class Main extends Component {
                 <p className={styles.p}>min.</p>
                 <p className={styles.p}>máx.</p>
               </div>
-              <Slider onMouseUp={this.mudaVelo} />
+              <Slider onTouchEnd={this.mudaVelo} onMouseUp={this.mudaVelo} />
               <p className={styles.p}>Velocidade da Simulação</p>
               
              </div>
@@ -332,7 +332,7 @@ export default class Main extends Component {
             </div>
           </div>
         </div>
-        <footer className={styles.footer}>Ver. 1.24</footer>
+        <footer className={styles.footer}>Ver. 1.33</footer>
       </div>
     );
   }

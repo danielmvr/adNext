@@ -12,6 +12,7 @@ export default function Slider (props){
     id="velo"
     className={styles.slider}
     onMouseUp={props.onMouseUp}
+    onTouchEnd={props.onTouchEnd}
     />
     </>
   )

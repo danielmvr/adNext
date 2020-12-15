@@ -5,11 +5,9 @@
 .body {
   align-items: center;
   text-align: center;
-  background: var(--secondaryColorDark);
   color: white;
   font: 300 1.8rem/1.5 'Libre Franklin', sans-serif;
   font-size: 14px;
-  background: none;
 }
 
 .h1 {
@@ -19,11 +17,19 @@
 }
 
 .container{
-  width: 40rem;
+  width: clamp(300px, 50vw, 80vw);
   padding: auto;
   margin: auto;
   background: #802323c5;
   border-radius: 10px;
+}
+
+.entradas {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: auto;
+  margin: 0 140px;
 }
 
 .footer {
@@ -43,9 +49,8 @@
 
 .my {
   display: flex;
-  justify-content: center;
+  justify-content: center;  
   align-items: center;
-  background: green;
 }
 
 .entradas input{
@@ -101,14 +106,6 @@
   box-shadow: none;
 }
 
-.entradas {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: auto;
-  margin: 0 140px; /*140px*/
-}
-
 .resultados {
   display: flex;
   justify-content: space-around;
@@ -134,14 +131,6 @@
   font-family: 'Libre Franklin', sans-serif;
   width: 20rem;
   margin-bottom: 20px;
-}
-
-#myweapon,
-#enemyweapon {
-  background: white;
-  border-radius: 10px;
-  color: black;
-  font-family: 'Libre Franklin', sans-serif;
 }
 
 .Adv {
@@ -180,6 +169,7 @@
 .select {
   margin: auto;
   padding: auto;
+  width: clamp(60px,100vw,10vw);
   text-align-last: center;
   height: 20px;
   cursor: pointer;
@@ -201,7 +191,9 @@
 .minMax {
   display: flex;
   justify-content:space-around;
-  margin: -0.4rem 6.5rem;
+  margin: -0.8rem;
+  margin-right: 6rem;
+  margin-left: 6rem;
   margin-top: 0.5rem;
 }
 
