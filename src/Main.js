@@ -385,7 +385,6 @@ function checkDead(hp1, hp2, velo, nameMy, nameEnemy) {
           id = createOption()
           id.style.background = `url(${icons[0].url}) no-repeat center`
           id = createOption()
-          id.selected = true
           id.innerHTML = `${nameMy} MATOU ${nameEnemy}!`
           //controlSword('stop')
       }, (tp = tp + velo))
@@ -394,7 +393,6 @@ function checkDead(hp1, hp2, velo, nameMy, nameEnemy) {
           id = createOption()
           id.style.background = `url(${icons[0].url}) no-repeat center`
           id = createOption()
-          id.selected = true
           id.innerHTML = `${nameMy} MORREU para o ${nameEnemy}!`
           //controlSword('stop')
       }, (tp = tp + velo))
