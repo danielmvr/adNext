@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
 import Slider from './components/Slider';
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
 
 //import VideoLogo from './components/VideoLogo';
 
@@ -326,9 +326,6 @@ export default class Main extends Component {
              </div>
             <button className={styles.button} onClick={this.lutar} type="submit">Lutar</button>
             <div className={styles.resultados} id="res">
-              
-              
-              
             </div>
           </div>
         </div>
