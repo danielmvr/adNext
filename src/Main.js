@@ -395,7 +395,7 @@ function checkDead(hp1, hp2, velo, nameMy, nameEnemy) {
           id.style.background = `url(${icons[0].url}) no-repeat center`
           id = createOption()
           id.selected = true
-          id.innerHTML = `${nameMy} MORREU para o ${nameEnemy}!`
+          id.innerHTML = `${nameMy} MORREU para ${nameEnemy}!`
           //controlSword('stop')
       }, (tp = tp + velo))
   }
