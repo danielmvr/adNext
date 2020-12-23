@@ -7,7 +7,8 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        <script data-ad-client="ca-pub-4431420090593445" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <meta name="description" content="Ferramenta de RPG, para simular combates, baseado nas regras de D&D 5e. Brigas de taverna, discução de NPCs, resolva rápido com o simulador!" />
+        <script data-ad-client="ca-pub-1263453850200005" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
